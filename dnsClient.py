@@ -11,7 +11,7 @@ import struct
 def dns_query(type, name, server):
     # Create a UDP socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    server_address = (server, 51)  # Enter Port Number
+    server_address = (server, 53)  # Enter Port Number
 
     # Create the DNS query
     ID = 0x1234
@@ -90,9 +90,9 @@ def dns_query(type, name, server):
     # Encode the QTYPE and QCLASS
 
     if type == 'A':
-        qtype = 10  # Lookup the Resource Record value
+        qtype = 1  # Lookup the Resource Record value
     elif type == 'AAAA': \
-            (qtype) = 10  # Lookup the Resource Record value
+            (qtype) = 28  # Lookup the Resource Record value
     else:
         raise ValueError('Invalid type')
 
